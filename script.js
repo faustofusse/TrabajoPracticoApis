@@ -1,3 +1,6 @@
+getLocationJSON();
+
+
 function getLocationJSON() {
 	
 	$.get('http://jsonip.com', function (res) {
@@ -20,8 +23,11 @@ function getLocationJSON() {
 	
 	function onSuccess (jsonReturn){
 		//alert(JSON.stringify(jsonReturn));
-		var pais = jsonReturn.response.country_name;
-		alert(pais);
+		var city = "";
+		for (var i = jsonReturn.length - 1; i >= 0; i--) {
+			city = jsonReturn[i].city;
+		}
+		$('p').html(city);
 	}
 
 	function onError (){
@@ -29,5 +35,3 @@ function getLocationJSON() {
 	}
 	
 }
-
-getLocationJSON();
