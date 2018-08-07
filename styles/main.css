@@ -1,0 +1,102 @@
+*{
+	margin: 0;
+	padding: 0;
+	color: #212121;
+}
+
+body {
+	background-color: #f5f5f5;
+}
+
+button:focus, button:active, input:focus, input:active{outline: none;}
+
+header {
+	background-color: #263238;
+}
+
+header h1 {
+	padding:1em;
+	font-size: 2.5em;
+	color: #fff;
+	font-family: "Raleway", sans-serif;
+}
+
+header nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	background-color: #0d47a1;
+	padding-left: 2em;
+}
+
+header nav div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: stretch;
+}
+
+header nav div button{
+	border:none;
+	background-color:#0d47a1;
+	color:#fff;
+	cursor: pointer;
+	padding: .8em 1em; 
+	font-size: 1.1em;
+}
+
+header nav div.diarios button:hover{
+	background-color:#1565c0;
+}
+
+main {
+	width: 95%;
+	margin: 3em auto;
+}
+
+main div.noticia {
+	cursor: pointer;
+	width: 23em;
+	display: flex;
+	justify-content: flex-start;
+	align-items: stretch;
+	flex-direction: column;
+	background-color: #fff;
+	box-shadow: 0px 0px 25px -3px rgba(0,0,0,0.75);
+	border-radius: 10px;
+}
+
+main div.noticia div.titulo {
+
+}
+
+main div.noticia div.titulo h2{
+	font-family: "Bitter", sans-serif;
+	font-weight: bold;
+	padding: .5em;
+}
+
+main div.noticia div.descripcion {
+	display: none;
+}
+
+main div.noticia div.descripcion h3{
+	font-size: 1em;
+	font-family: "Bitter", sans-serif;
+	font-weight: normal;
+	padding: .5em;
+}
+
+main div.noticia img {
+	width: 100%;
+}
+
+main div.noticia div.fecha {
+	padding: .5em .8em;
+	display: flex;
+}
+
+main div.noticia div.fecha span {
+	text-align: right;
+	font-style: italic;
+	width: 100%;
+}

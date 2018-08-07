@@ -32,7 +32,6 @@ function getYoda(text){
 	})
 	.done(function(data) {
 		$('span').html(data.contents.translated);
-		traduccion = "gomes";
 	})
 	.fail(function() {
 		alert("Error obteniendo json de yoda");
