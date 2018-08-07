@@ -8,8 +8,8 @@ var cnn = {id:"cnn",baseColor:""},
 var key = "d1eae06defad4bb29383968c90e85a4b";
 var parameters = {
 	"apiKey": key,
-	"sources": foxSports.id,
-	"from":"2018-08-07",
+	"sources": dailyMail.id,
+	"from":"2015-08-07",
 	//"sortBy":"popularity"
 };
 
@@ -23,11 +23,18 @@ $.ajax({
 .done(function(data) {
 	//$('p').html(JSON.stringify(data));
 	//alert(JSON.stringify(data.articles));
+	var noticia = $('div.noticia');
 	for (var i = 0; i < data.articles.length; i++) {
 		//alert(JSON.stringify(data.articles[i]));
-		//$('div.noticia').clone().appendTo('main'); 
+		var clon = noticia.clone();
+		clon.find('h2').html(data.articles[i].title);
+		clon.find('h3').html(data.articles[i].description);
+		clon.find('img').attr('src',data.articles[i].urlToImage);
+		var fuente = data.articles[i].source.name + " - " + data.articles[i].publishedAt;
+		clon.find('span').html(fuente);
+		clon.appendTo('main'); 
 	}
-	alert(data.articles.length);
+	noticia.css('display', 'none');
 })
 .fail(function() {
 	alert("Error obtaining JSON");
