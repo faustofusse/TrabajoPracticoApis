@@ -16,7 +16,7 @@ header {
 
 header h1 {
 	padding:1em;
-	font-size: 3em;
+	font-size: 4.3em;
 	color: #fff;
 	font-family: "Raleway", sans-serif;
 }
@@ -42,7 +42,7 @@ header nav div button{
 	color:#fff;
 	cursor: pointer;
 	padding: .8em 1em; 
-	font-size: 1.1em;
+	font-size: 1.3em;
 }
 
 header nav div.diarios button:hover{
