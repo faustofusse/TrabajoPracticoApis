@@ -27,6 +27,7 @@ header h1 {
 }
 
 header button#idioma {
+	position: relative;
 	cursor: pointer;
 	margin-right: 4em;
 	width: 3em;
@@ -37,6 +38,23 @@ header button#idioma {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+header div.idiomas {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+header div.idiomas button {
+	padding: 1em .5em 1em 2em;
+	border:none;
+	background-color: #fff;
+	background-image: url(../images/flags/es.svg);
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: cover; 
 }
 
 header nav {

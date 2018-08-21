@@ -7,8 +7,9 @@ var newsApi = {
 	parameters: {
 		from: fecha,
 		to: fecha,
-		sources: "the-new-york-times",
-		language: "en",
+		//country: "ar",
+		sources: "infobae",
+		//language: "en",
 		//q: "", // Palabra clave
 	}
 };
@@ -68,6 +69,7 @@ $(window).scroll(function() {
 function rellenarContenido(){
 	newsApi.parameters.from = fecha;
 	newsApi.parameters.to = fecha;
+	//newsApi.parameters.sources = "ole";
 	$.get(newsApi.url, newsApi.parameters, function (data, status) {
 		console.log(JSON.stringify(data));
 		for (var i = 0; i < data.articles.length; i++) {
