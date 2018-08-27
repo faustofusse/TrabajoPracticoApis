@@ -82,8 +82,17 @@ header nav div button{
 	font-size: 1.3em;
 }
 
-header nav div.diarios button:hover{
+header nav div button:hover{
 	background-color:#1565c0;
+}
+
+header nav div.diarios button i {
+	display: none;
+	color: #d32f2f;
+}
+
+header nav div.opciones button i {
+	color: #fff;
 }
 
 main {

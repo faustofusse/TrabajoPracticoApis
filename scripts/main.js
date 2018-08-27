@@ -50,6 +50,14 @@ $('#floatingButton').click(function() {
 	$("html, body").animate({scrollTop: 0}, "slow");
 });
 
+$('button#editar').click(function() {
+	$('header nav div.diarios button i').slideToggle(0);
+});
+
+$('button#agregarDiario').click(function() {
+	
+});
+
 $(window).scroll(function() {
 	if (ultimaNoticia.isInViewport()){
 		ultimaNoticia.css('background-color', '#fff');
