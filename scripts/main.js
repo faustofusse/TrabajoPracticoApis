@@ -55,7 +55,18 @@ $('button#editar').click(function() {
 });
 
 $('button#agregarDiario').click(function() {
-	
+	$('header h1').slideUp();
+	$('header > button').slideUp();
+	$("html, body").animate({scrollTop: 0}, "slow").css('overflow', 'hidden');;
+	$('div.opciones input').animate({width: '20em', padding: '1em'}, 300);
+	$('div.opciones input').focus();
+});
+
+$('div.opciones input').focusout(function() {
+	$('html, body').css('overflow', 'auto');
+	$('header h1').slideDown();
+	$('header > button').slideDown();
+	$(this).animate({width: '0', padding: '0'}, 300);
 });
 
 $(window).scroll(function() {

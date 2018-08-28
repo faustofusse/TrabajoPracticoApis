@@ -80,17 +80,27 @@ header nav div button{
 	cursor: pointer;
 	padding: .8em 1em; 
 	font-size: 1.3em;
+	line-height: 0em;
 }
 
 header nav div button:hover{
 	background-color:#1565c0;
 }
 
+header nav div.diarios {
+	overflow-x: auto;
+}
 header nav div.diarios button i {
 	display: none;
 	color: #d32f2f;
 }
 
+header nav div.opciones input {
+	border: none;
+	padding: 0;
+	font-size: 1.2em;
+	width: 0;
+}
 header nav div.opciones button i {
 	color: #fff;
 }
@@ -169,4 +179,8 @@ button#floatingButton {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+button#floatingButton i{
+	color: #fff;
+	font-size: 2em;
 }
