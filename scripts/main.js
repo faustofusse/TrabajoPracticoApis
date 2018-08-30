@@ -32,8 +32,8 @@ var day = date.getDate(); var daysPast = 0;
 var month = date.getMonth()+1; var monthsPast = 0;
 var year = date.getFullYear(); var yearsPast = 0;
 var	fecha = getYear() + "-" + getMonth() + "-" + getDay();
+
 rellenarContenido();
-buscarDiarios();
 
 /*----------------------- EVENTOS -----------------------*/
 
@@ -50,7 +50,11 @@ $('#floatingButton').click(function() {
 	$("html, body").animate({scrollTop: 0}, "slow");
 });
 
-$('button#editar').click(function() {
+$('header nav div.buscar input#buscarDiarios').keypress(function() {
+	buscarDiarios($(this).val(), 'en');
+});
+
+/*$('button#editar').click(function() {
 	$('header nav div.diarios button i').slideToggle(0);
 });
 
@@ -67,7 +71,9 @@ $('div.opciones input').focusout(function() {
 	$('header h1').slideDown();
 	$('header > button').slideDown();
 	$(this).animate({width: '0', padding: '0'}, 300);
-});
+});*/
+
+
 
 $(window).scroll(function() {
 	if (ultimaNoticia.isInViewport()){
@@ -106,10 +112,12 @@ function rellenarContenido(){
 	}, 'json');
 }
 
-function buscarDiarios(){
+function buscarDiarios(busqueda, idioma){
 	let sourcesUrl = "https://newsapi.org/v2/sources";
-	$.get(sourcesUrl, {language:'en'}, function(data){
-		console.log(JSON.stringify(this.data));
+	$.get(sourcesUrl, {language:idioma, apiKey:key}, function(data){
+		var sources = data.sources;
+		//sources.splice(3, 1); // primer parametro: indice a eliminar, segundo: cantidad de elementos a eliminar.
+		console.log(sources.length);
 	}, 'json');
 }
 
