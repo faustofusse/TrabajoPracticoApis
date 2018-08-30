@@ -33,7 +33,7 @@ var month = date.getMonth()+1; var monthsPast = 0;
 var year = date.getFullYear(); var yearsPast = 0;
 var	fecha = getYear() + "-" + getMonth() + "-" + getDay();
 rellenarContenido();
-
+buscarDiarios();
 
 /*----------------------- EVENTOS -----------------------*/
 
@@ -88,11 +88,9 @@ $(window).scroll(function() {
 function rellenarContenido(){
 	newsApi.parameters.from = fecha;
 	newsApi.parameters.to = fecha;
-	//newsApi.parameters.sources = "ole";
 	$.get(newsApi.url, newsApi.parameters, function (data, status) {
-		console.log(JSON.stringify(data));
+		//console.log(JSON.stringify(data));
 		for (var i = 0; i < data.articles.length; i++) {
-			//alert(JSON.stringify(data.articles[i]));
 			var clon = noticia.clone();
 			var fuente = data.articles[i].source.name + " - " + data.articles[i].publishedAt;
 			var link = data.articles[i].url;
@@ -105,6 +103,13 @@ function rellenarContenido(){
 		}
 		ultimaNoticia = $('div.noticia:last');
 		ultimaNoticia.css('background-color', 'blue');
+	}, 'json');
+}
+
+function buscarDiarios(){
+	let sourcesUrl = "https://newsapi.org/v2/sources";
+	$.get(sourcesUrl, {language:'en'}, function(data){
+		console.log(JSON.stringify(this.data));
 	}, 'json');
 }
 
