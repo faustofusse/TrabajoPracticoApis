@@ -50,30 +50,10 @@ $('#floatingButton').click(function() {
 	$("html, body").animate({scrollTop: 0}, "slow");
 });
 
-$('header nav div.buscar input#buscarDiarios').keypress(function() {
-	buscarDiarios($(this).val(), 'en');
+$('input#buscarDiarios').keypress(function() {
+	//buscarDiarios($(this).val(), 'en');
+	console.log("Hola");
 });
-
-/*$('button#editar').click(function() {
-	$('header nav div.diarios button i').slideToggle(0);
-});
-
-$('button#agregarDiario').click(function() {
-	$('header h1').slideUp();
-	$('header > button').slideUp();
-	$("html, body").animate({scrollTop: 0}, "slow").css('overflow', 'hidden');;
-	$('div.opciones input').animate({width: '20em', padding: '1em'}, 300);
-	$('div.opciones input').focus();
-});
-
-$('div.opciones input').focusout(function() {
-	$('html, body').css('overflow', 'auto');
-	$('header h1').slideDown();
-	$('header > button').slideDown();
-	$(this).animate({width: '0', padding: '0'}, 300);
-});*/
-
-
 
 $(window).scroll(function() {
 	if (ultimaNoticia.isInViewport()){
@@ -113,6 +93,7 @@ function rellenarContenido(){
 }
 
 function buscarDiarios(busqueda, idioma){
+	console.log('hola');
 	let sourcesUrl = "https://newsapi.org/v2/sources";
 	$.get(sourcesUrl, {language:idioma, apiKey:key}, function(data){
 		var sources = data.sources;
