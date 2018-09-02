@@ -7,24 +7,18 @@ var newsApi = {
 	parameters: {
 		from: fecha,
 		to: fecha,
-		//country: "ar",
 		sources: "infobae",
-		//language: "en",
-		//q: "", // Palabra clave
-	}
+	} // otros parametros pueden ser country, language, q (palabra clave)
 };
 
-var diarios = [{id:"cnn",baseColor:"#263238",colorHover:"#1565c0"},
-    	{id:"daily-mail",baseColor:"#263238",colorHover:"#1565c0"},
-    	{id:"bbc-news",baseColor:"#263238",colorHover:"#1565c0"},
-    	{id:"marca",baseColor:"#263238",colorHover:"#1565c0"},
-    	{id:"the-new-york-times",baseColor:"#263238",colorHover:"#1565c0"},
-    	{id:"fox-sports",baseColor:"#263238",colorHover:"#1565c0"}];
-var diarioActivo = diarios[0];
+var diarios = ['cnn', 'daily-mail', 'bbc-news', 'marca', 'the-new-york-times', 'fox-sports']
+var diarioActivo;
+var colorNormal = '#0d47a1';
+var colorHover = '#1565c0';
 
+var noticias = [];
 var noticia = $('div.noticia');
 var ultimaNoticia;
-$('div.noticia').remove();
 
 var fecha = ""; 
 var date = new Date();
@@ -33,6 +27,10 @@ var month = date.getMonth()+1; var monthsPast = 0;
 var year = date.getFullYear(); var yearsPast = 0;
 var	fecha = getYear() + "-" + getMonth() + "-" + getDay();
 
+
+/*----------------------- INICIALIZACION -----------------------*/
+
+$('div.noticia').remove();
 rellenarContenido();
 
 /*----------------------- EVENTOS -----------------------*/
@@ -40,9 +38,9 @@ rellenarContenido();
 $('header nav div.diarios button').click(function() {
 	var id = $(this).attr('id');
 	diarioActivo = findDiarioBySource(id);
-	newsApi.parameters.sources = diarioActivo.id;
-	//$(this).css('background-color', diarioActivo.colorHover);
+	newsApi.parameters.sources = diarioActivo;
 	$('div.noticia').remove();
+	noticias = [];
 	rellenarContenido();
 });
 
@@ -50,9 +48,27 @@ $('#floatingButton').click(function() {
 	$("html, body").animate({scrollTop: 0}, "slow");
 });
 
+$('input#buscarDiarios').click(function() {
+	if($(this).val().length > 0){
+		$('main div.busqueda').slideDown();
+	}
+});
+
+$('input#buscarDiarios').focusout(function() {
+	$('main .busqueda').slideUp();
+});
+
 $('input#buscarDiarios').keypress(function() {
-	//buscarDiarios($(this).val(), 'en');
-	console.log("Hola");
+	buscarDiarios($(this).val());
+});
+
+$('input#buscarDiarios').keyup(function(event) {
+	// BACKSPACE KEYCODE = 8
+	if (event.keyCode == 8 && $(this).val().length <= 1){
+		$('main div.busqueda').slideUp();
+	}else if (event.keyCode == 8 && $(this).val() > 1){
+		buscarDiarios($(this).val());
+	}
 });
 
 $(window).scroll(function() {
@@ -67,6 +83,7 @@ $(window).scroll(function() {
 	}else{
 		$('#floatingButton').css('display', 'block');
 	}
+	$('main div.busqueda').slideUp(200);
 });
 
 /*----------------------- FUNCIONES -----------------------*/
@@ -84,27 +101,52 @@ function rellenarContenido(){
 			clon.find('h3').html(data.articles[i].description);
 			clon.find('img').attr('src',data.articles[i].urlToImage);
 			clon.find('span').html(fuente);
-			clon.click(function (){alert(link);});
+			clon.click(clickNoticia);
 			clon.appendTo('main'); 
 		}
+		noticias = $.merge(noticias, data.articles);
 		ultimaNoticia = $('div.noticia:last');
-		ultimaNoticia.css('background-color', 'blue');
 	}, 'json');
 }
 
-function buscarDiarios(busqueda, idioma){
-	console.log('hola');
+function buscarDiarios(busqueda){
 	let sourcesUrl = "https://newsapi.org/v2/sources";
-	$.get(sourcesUrl, {language:idioma, apiKey:key}, function(data){
+	$.get(sourcesUrl, {apiKey:key}, function(data){ // se le puede agregar el parametro lenguaje
 		var sources = data.sources;
-		//sources.splice(3, 1); // primer parametro: indice a eliminar, segundo: cantidad de elementos a eliminar.
-		console.log(sources.length);
+		var resultados = [];
+		$('main div.busqueda button').remove();
+
+		for(var i = 0; i< sources.length; i++){
+			if (sources[i].name.toLowerCase().indexOf($.trim(busqueda.toLowerCase())) != -1){
+				$('main .busqueda').slideDown();
+				//$('main .busqueda').css('display', 'flex');
+				resultados.push(sources[i]);
+				var diario = '<button id="'+ sources[i].id +'"><i class="fa fa-newspaper"></i>' + sources[i].name + '</button>';
+				$('main div.busqueda').append(diario);
+				$('main div.busqueda button#'+sources[i].id).click(clickBotonBusqueda);
+			}
+		}
 	}, 'json');
+}
+
+function clickBotonBusqueda(){
+	var id = $(this).attr('id');
+	//diarioActivo = findDiarioBySource(id);
+	newsApi.parameters.sources = id;
+	$('header nav input#buscarDiarios').val("");
+	$('div.noticia').remove();
+	noticias = [];
+	rellenarContenido();
+}
+
+function clickNoticia(){
+	var index = $('main div.noticia').index($(this));
+	window.location.href = noticias[index].url;
 }
 
 function findDiarioBySource(source){
 	for (var i = 0; i < diarios.length; i++) {
-		if (source === diarios[i].id)
+		if (source === diarios[i])
 			return diarios[i];
 	}
 }

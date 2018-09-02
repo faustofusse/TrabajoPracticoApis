@@ -1,0 +1,602 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"so",
+				"sources"
+			],
+			[
+				"for",
+				"for\tfor (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"busc",
+				"buscarDiarios"
+			],
+			[
+				"bus",
+				"buscarDiarios"
+			],
+			[
+				"sour",
+				"sources"
+			],
+			[
+				"source",
+				"sourcesUrl"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"backgroun",
+				"background-size"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"bor",
+				"border-collapse"
+			],
+			[
+				"BOR",
+				"border-style"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"g",
+				"Gago"
+			],
+			[
+				"imagen",
+				"imagenes"
+			],
+			[
+				"ima",
+				"imagenes"
+			],
+			[
+				"ti",
+				"titulo"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"borde",
+				"border-style"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"su",
+				"sub-historia"
+			],
+			[
+				"sub",
+				"sub-estadio"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"r",
+				"rgba()"
+			],
+			[
+				"u",
+				"url()"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"head",
+				"header\tTag"
+			],
+			[
+				"v",
+				"value"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"fons",
+				"font-size"
+			],
+			[
+				"di",
+				"distancia"
+			],
+			[
+				"mas",
+				"masa2"
+			],
+			[
+				"dis",
+				"dist"
+			],
+			[
+				"x1",
+				"x1"
+			],
+			[
+				"con",
+				"cont-audios"
+			],
+			[
+				"bro",
+				"border"
+			],
+			[
+				"pos",
+				"pos-f\tposition: fixed;"
+			],
+			[
+				"po",
+				"pos-f\tposition: fixed;"
+			],
+			[
+				"cont",
+				"cont"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"text-de",
+				"text-decoration"
+			],
+			[
+				"bo",
+				"box-shadow"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"p",
+				"pointer"
+			],
+			[
+				"t",
+				"text"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"f",
+				"float"
+			],
+			[
+				"res",
+				"resultado"
+			],
+			[
+				"num",
+				"numero2"
+			],
+			[
+				"numero",
+				"numero1"
+			],
+			[
+				"d",
+				"dividir"
+			],
+			[
+				"mult",
+				"multiplicar"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"gt",
+				"getElementById"
+			],
+			[
+				"sum",
+				"sumar"
+			],
+			[
+				"box-s",
+				"box-shadow"
+			],
+			[
+				"shad",
+				"box-shadow"
+			],
+			[
+				"s",
+				"suma"
+			],
+			[
+				"nu",
+				"numero2"
+			],
+			[
+				"btn",
+				"btnSumar"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"lo",
+				"lower-alpha"
+			],
+			[
+				"list",
+				"list-dc\tlist-style-type: decimal;"
+			],
+			[
+				"li",
+				"list-style"
+			],
+			[
+				"cu",
+				"cur\tcursor: ${pointer};"
+			],
+			[
+				"CU",
+				"cur\tcursor: ${pointer};"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"c",
+				"class\tAttr"
+			],
+			[
+				"i",
+				"id\tAttr"
+			],
+			[
+				"col",
+				"contenteditable\tAttr"
+			],
+			[
+				"str",
+				"strcmp"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"mat",
+				"Material Theme: Activate theme"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Disable Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 244.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis"
+	],
+	"file_history":
+	[
+		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis/images/search.svg",
+		"/Volumes/FAUSTO/Proyecto2/index.html",
+		"/Volumes/FAUSTO/Proyecto2/js/buscar_imagenes.js",
+		"/Volumes/FAUSTO/Proyecto2/styles/main.css",
+		"/Volumes/FAUSTO/Proyecto2/jugadores.html",
+		"/Volumes/FAUSTO/Proyecto2/imagenes.html",
+		"/Volumes/FAUSTO/Proyecto/Imagenes.html",
+		"/Volumes/FAUSTO/Proyecto/styles/main.css",
+		"/Volumes/FAUSTO/Proyecto/index.html",
+		"/Volumes/FAUSTO/Proyecto/styles/main2.css",
+		"/Volumes/FAUSTO/Proyecto2/js/efecto_fondo.js",
+		"/Volumes/FAUSTO/Proyecto/Gifs.html",
+		"/Volumes/FAUSTO/Proyecto/inicio.html",
+		"/Volumes/FAUSTO/Proyecto/buscar_imagenes.js",
+		"/Users/mariavaleriarebora/Desktop/HOLAWA/ElBlogDelFeminismo.css",
+		"/Users/mariavaleriarebora/Desktop/HOLAWA/ElBlogDelFeminismo.js",
+		"/Users/mariavaleriarebora/Desktop/HOLAWA/ElBlogDelFeminismo.html",
+		"/Users/mariavaleriarebora/Desktop/hola.cpp",
+		"/Users/mariavaleriarebora/Desktop/kjnfklnf.html",
+		"/Users/mariavaleriarebora/Desktop/HTML/Calculadora.js",
+		"/Users/mariavaleriarebora/Desktop/hola.html",
+		"/Users/mariavaleriarebora/Desktop/CURSOJAVA/FaustoJava/src/Buscaminas/Main.java",
+		"/Users/mariavaleriarebora/Desktop/CURSOJAVA/FaustoJava/src/Buscaminas/Ventana.java",
+		"/Volumes/FAUSTO/FaustoJava/src/Buscaminas/Main.java",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/menu.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/css/menu.css",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/index.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/js/menu.js",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/css/navbar.css",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/configuracion.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/imagenes.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/audios.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/calculadora.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/notas.html",
+		"/Users/mariavaleriarebora/Desktop/app_fausto/js/navbar.js",
+		"/Applications/MAMP/bin/phpMyAdmin/js/openlayers/src/openlayers/lib/OpenLayers/Layer/Google/v3.js",
+		"/Users/mariavaleriarebora/Desktop/HTML/Calculadora.css",
+		"/Users/mariavaleriarebora/Desktop/HTML/Calculadora.html",
+		"/Applications/MAMP/htdocs/CursoPHP/enviarco.php",
+		"/Applications/MAMP/htdocs/CursoPHP/insertar.php",
+		"/Applications/MAMP/htdocs/CursoPHP/fomail.php",
+		"/Applications/MAMP/htdocs/CursoPHP/procesar.php",
+		"/Applications/MAMP/htdocs/CursoPHP/formarchivo.php",
+		"/Applications/MAMP/htdocs/CursoPHP/conexion.php",
+		"/Applications/MAMP/htdocs/CursoPHP/forveri.php",
+		"/Applications/MAMP/htdocs/CursoPHP/verificar.php",
+		"/Applications/MAMP/htdocs/CursoPHP/restringida.php",
+		"/Applications/MAMP/htdocs/CursoPHP/destruir.php",
+		"/Applications/MAMP/htdocs/CursoPHP/form.php",
+		"/Applications/MAMP/htdocs/CursoPHP/regusuario.php",
+		"/Applications/MAMP/htdocs/CursoPHP/select.php",
+		"/Applications/MAMP/htdocs/CursoPHP/Formu.php",
+		"/Applications/MAMP/htdocs/CursoPHP/regusuario",
+		"/Applications/MAMP/htdocs/CursoPHP/prueba5.php",
+		"/Volumes/PENDRIVE/Calculadora.js",
+		"/Volumes/PENDRIVE/Calculadora.css",
+		"/Volumes/PENDRIVE/Calculadora.html",
+		"/Users/mariavaleriarebora/Desktop/Calculadora.html",
+		"/Users/mariavaleriarebora/Desktop/Curso1.html",
+		"/Applications/MAMP/htdocs/calc.php",
+		"/Users/mariavaleriarebora/Desktop/javascript-fausto.html",
+		"/Users/mariavaleriarebora/Desktop/lista.html",
+		"/Users/mariavaleriarebora/Desktop/estilo-lista.css",
+		"/Users/mariavaleriarebora/Desktop/htdocs",
+		"/Applications/MAMP/htdocs/CursoPHP/Variables.php",
+		"/Applications/MAMP/htdocs/Calculadora.php",
+		"/Users/mariavaleriarebora/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Applications/MAMP/htdocs/CursoPHP/Clase1.php"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"972",
+			");\n",
+			"\";\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tpApis.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 180.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

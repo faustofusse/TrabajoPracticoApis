@@ -89,25 +89,8 @@ header nav div button:hover{
 }
 
 header nav div.diarios {
-	overflow-x: auto;
+	flex-wrap: wrap;
 }
-
-/*-------------------- SIN USAR---------------------------------------*/
-header nav div.diarios button i {
-	display: none;
-	color: #d32f2f;
-}
-
-header nav div.opciones input {
-	border: none;
-	padding: 0;
-	font-size: 1.2em;
-	width: 0;
-}
-header nav div.opciones button i {
-	color: #fff;
-}
-/*--------------------------------------------------------------------*/
 
 header nav div.buscar i {
 	color: #bdbdbd;
@@ -129,12 +112,49 @@ header nav div.buscar input#buscarDiarios::placeholder{
 	color: #bdbdbd;
 }
 
+/*--------------------------------------------------------------*/
+
 main {
-	margin-top: 1em;	
+	padding-top: 1em;	
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	position: relative;
+}
+
+main div.busqueda {
+	position: relative;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 24.6em;
+	height: 20em;
+	background-color: #fff;
+	overflow-y: auto;
+	box-shadow: 0px 5px 13px -3px rgba(0,0,0,0.75);
+	justify-content: flex-start;
+	flex-direction: column;
+	align-items: stretch;
+	display: none;
+}
+
+main div.busqueda button {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	font-family: "Bitter", sans-serif;
+	font-size: 0.9em;
+	padding: 2em;
+	border: none;
+	cursor: pointer;
+	margin: 0;
+	border-bottom: 1px solid #bdbdbd;
+}
+
+main div.busqueda button i{
+	color: #0d47a1;
+	margin-right: 1em;
 }
 
 main div.noticia {
@@ -148,10 +168,6 @@ main div.noticia {
 	box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.75);
 	border-radius: 8px;
 	margin: 1.5em;	
-}
-
-main div.noticia div.titulo {
-
 }
 
 main div.noticia div.titulo h2{
