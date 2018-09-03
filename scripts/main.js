@@ -132,7 +132,7 @@ function buscarDiarios(busqueda){
 	}, 'json');
 }
 
-function getRelatedEntities(text){
+function getRelatedEntities(text, noticia){
 	var url = "http://api.intellexer.com/recognizeNeText?";
 	var parameters = {
 		apikey: 'a1e0e205-187e-4ba1-a9a4-c0a4b02e91ae',
@@ -142,7 +142,6 @@ function getRelatedEntities(text){
 	};
 	$.post(url + $.param(parameters), text, function(data) {
 		//console.log(data.entities);
-		console.log(data);
 	}, 'json');
 }
 
