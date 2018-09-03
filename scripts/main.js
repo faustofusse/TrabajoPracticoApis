@@ -32,6 +32,8 @@ var	fecha = getYear() + "-" + getMonth() + "-" + getDay();
 
 $('div.noticia').remove();
 rellenarContenido();
+var text = "Barcelona recibirá hoy al recién ascendido y debutante en Primera División, el SD Huesca, en la previa del parate de los torneos oficiales una doble fecha de selecciones dispuesta por la FIFA. La visita del equipo dirigido por el ex arquero argentino Leonardo Franco a los liderados en cancha por Lionel Messi será a las 13:30 (hora de la Argentina) supondrá una riesgosa empresa pero, se sabe, los partidos deben jugarse.";
+getRelatedEntities(text);
 
 /*----------------------- EVENTOS -----------------------*/
 
@@ -58,15 +60,16 @@ $('input#buscarDiarios').focusout(function() {
 	$('main .busqueda').slideUp();
 });
 
-$('input#buscarDiarios').keypress(function() {
-	buscarDiarios($(this).val());
+$('input#buscarDiarios').keypress(function(event) {
+	if (event.keyCode != 8)
+		buscarDiarios($(this).val());
 });
 
 $('input#buscarDiarios').keyup(function(event) {
 	// BACKSPACE KEYCODE = 8
-	if (event.keyCode == 8 && $(this).val().length <= 1){
+	if (event.keyCode == 8 && $(this).val().length == 0){
 		$('main div.busqueda').slideUp();
-	}else if (event.keyCode == 8 && $(this).val() > 1){
+	}else if (event.keyCode == 8 && $(this).val().length > 0){
 		buscarDiarios($(this).val());
 	}
 });
@@ -100,7 +103,7 @@ function rellenarContenido(){
 			clon.find('h2').html(data.articles[i].title);
 			clon.find('h3').html(data.articles[i].description);
 			clon.find('img').attr('src',data.articles[i].urlToImage);
-			clon.find('span').html(fuente);
+			clon.find('div.fecha span').html(fuente);
 			clon.click(clickNoticia);
 			clon.appendTo('main'); 
 		}
@@ -126,6 +129,20 @@ function buscarDiarios(busqueda){
 				$('main div.busqueda button#'+sources[i].id).click(clickBotonBusqueda);
 			}
 		}
+	}, 'json');
+}
+
+function getRelatedEntities(text){
+	var url = "http://api.intellexer.com/recognizeNeText?";
+	var parameters = {
+		apikey: 'a1e0e205-187e-4ba1-a9a4-c0a4b02e91ae',
+		loadNamedEntities: true,
+		loadRelationsTree: false,
+		loadSentences: false
+	};
+	$.post(url + $.param(parameters), text, function(data) {
+		//console.log(data.entities);
+		console.log(data);
 	}, 'json');
 }
 
