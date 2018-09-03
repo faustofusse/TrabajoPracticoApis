@@ -95,7 +95,7 @@ function rellenarContenido(){
 	newsApi.parameters.from = fecha;
 	newsApi.parameters.to = fecha;
 	$.get(newsApi.url, newsApi.parameters, function (data, status) {
-		//console.log(JSON.stringify(data));
+		//console.log(data);
 		for (var i = 0; i < data.articles.length; i++) {
 			var clon = noticia.clone();
 			var fuente = data.articles[i].source.name + " - " + data.articles[i].publishedAt;
@@ -103,8 +103,9 @@ function rellenarContenido(){
 			clon.find('h2').html(data.articles[i].title);
 			clon.find('h3').html(data.articles[i].description);
 			clon.find('img').attr('src',data.articles[i].urlToImage);
-			clon.find('div.fecha span').html(fuente);
+			clon.find('span#fecha').html(fuente);
 			clon.click(clickNoticia);
+			//getRelatedEntities(data.articles[i].title, clon);
 			clon.appendTo('main'); 
 		}
 		noticias = $.merge(noticias, data.articles);
@@ -133,16 +134,38 @@ function buscarDiarios(busqueda){
 }
 
 function getRelatedEntities(text, noticia){
-	var url = "http://api.intellexer.com/recognizeNeText?";
+	/*var url = "http://api.intellexer.com/recognizeNeText?";
 	var parameters = {
 		apikey: 'a1e0e205-187e-4ba1-a9a4-c0a4b02e91ae',
 		loadNamedEntities: true,
 		loadRelationsTree: false,
 		loadSentences: false
-	};
-	$.post(url + $.param(parameters), text, function(data) {
-		//console.log(data.entities);
+	};*/
+	var url = "https://api.aylien.com/api/v1/entities?";
+	var parameters = {	
+		text: text,
+		'X-AYLIEN-TextAPI-Application-ID': '4b190c9a',
+		'X-AYLIEN-TextAPI-Application-Key': '50502f402fd0e91b1ccf4ae2e9020ade',
+	}
+	$.get(url, parameters, function(data) {
+		var entities = data.entities;
+		console.log(data);
+		/*for(var i = 0; i<entities.length;i++){
+			if (entities[i].text.indexOf('.com') == -1){
+				var boton = '<button>' + entities[i].text + '</button>';
+				noticia.find('div.related').append(boton);
+			}
+		}*/
 	}, 'json');
+}
+
+function filtrarEntidades(entidades) {
+	var borrar = [];
+	for (var i = entidades.length - 1; i >= 0; i--) {
+		if (entidades[i].text.length < 4){
+			borrar.push(i);
+		}
+	}
 }
 
 function clickBotonBusqueda(){

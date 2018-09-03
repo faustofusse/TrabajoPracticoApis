@@ -2,8 +2,8 @@
 var periods = [];
 var coordenates = "";
 
-getWeather();
-name2coordenates("Gualeguaychu");
+//getWeather();
+//name2coordenates("Gualeguaychu");
 
 function name2coordenates(nombre){
 	let key = "3b7d64b2de6d485387433f66ad13ab15";
