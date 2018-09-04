@@ -223,7 +223,7 @@ main div.noticia div.related span {
 	font-weight: bold;
 }
 
-main div.noticia div.related button {
+main div.noticia div.related a {
 	cursor: pointer;
 	border:none;
 	padding: .7em;
@@ -232,11 +232,16 @@ main div.noticia div.related button {
 	border-radius: 2em;
 	font-weight: bold;
 	color: #37474f;
-	box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.75);
+	background-color: #fff;
+	text-decoration: none;
+	box-shadow: inset 0px 0px 4px 2px rgba(0,0,0,0	.75);
 	/*color: #0d47a1;
 	background-color: #1e88e5;*/
 }
 
+main div.noticia div.related a:hover {
+	box-shadow: inset 0px 0px 6px 2px rgba(0,0,0,0.75);
+}
 
 button#floatingButton {
 	display: none;

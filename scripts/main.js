@@ -33,7 +33,7 @@ var	fecha = getYear() + "-" + getMonth() + "-" + getDay();
 $('div.noticia').remove();
 rellenarContenido();
 var text = "Barcelona recibirá hoy al recién ascendido y debutante en Primera División, el SD Huesca, en la previa del parate de los torneos oficiales una doble fecha de selecciones dispuesta por la FIFA. La visita del equipo dirigido por el ex arquero argentino Leonardo Franco a los liderados en cancha por Lionel Messi será a las 13:30 (hora de la Argentina) supondrá una riesgosa empresa pero, se sabe, los partidos deben jugarse.";
-getRelatedEntities(text);
+//getRelatedEntities(text);
 
 /*----------------------- EVENTOS -----------------------*/
 
@@ -105,7 +105,7 @@ function rellenarContenido(){
 			clon.find('img').attr('src',data.articles[i].urlToImage);
 			clon.find('span#fecha').html(fuente);
 			clon.click(clickNoticia);
-			//getRelatedEntities(data.articles[i].title, clon);
+			getRelatedEntities(data.articles[i].description, clon);
 			clon.appendTo('main'); 
 		}
 		noticias = $.merge(noticias, data.articles);
@@ -134,38 +134,35 @@ function buscarDiarios(busqueda){
 }
 
 function getRelatedEntities(text, noticia){
-	/*var url = "http://api.intellexer.com/recognizeNeText?";
+	/*
+	// FORMA 1 (ANDA): INTELLEXER
+	var url = "https://api.intellexer.com/recognizeNeText?";
 	var parameters = {
 		apikey: 'a1e0e205-187e-4ba1-a9a4-c0a4b02e91ae',
-		loadNamedEntities: true,
-		loadRelationsTree: false,
-		loadSentences: false
-	};*/
-	var url = "https://api.aylien.com/api/v1/entities?";
-	var parameters = {	
-		text: text,
-		'X-AYLIEN-TextAPI-Application-ID': '4b190c9a',
-		'X-AYLIEN-TextAPI-Application-Key': '50502f402fd0e91b1ccf4ae2e9020ade',
-	}
-	$.get(url, parameters, function(data) {
-		var entities = data.entities;
+		loadNamedEntities: false,
+		loadRelationsTree: true,
+		loadSentences: false,
+	};
+	$.post(url + $.param(parameters), text, function(data) {
 		console.log(data);
-		/*for(var i = 0; i<entities.length;i++){
-			if (entities[i].text.indexOf('.com') == -1){
-				var boton = '<button>' + entities[i].text + '</button>';
+	});
+	*/
+
+	// FORMA 2 (ANDA): DANDELION
+	var url = 'https://api.dandelion.eu/datatxt/nex/v1/?';
+	var parameters = {
+		text: text,
+		token:'a8e24afa552d46339e8cf01c4403daa8',
+	};
+	$.get(url, parameters, function(data){
+		var entities = data.annotations;
+		for (var i = entities.length - 1; i >= 0; i--) {
+			if(entities[i].confidence > 0.8){
+				var boton = '<a href="'+entities[i].uri+'">'+entities[i].label+'</a>';
 				noticia.find('div.related').append(boton);
 			}
-		}*/
-	}, 'json');
-}
-
-function filtrarEntidades(entidades) {
-	var borrar = [];
-	for (var i = entidades.length - 1; i >= 0; i--) {
-		if (entidades[i].text.length < 4){
-			borrar.push(i);
 		}
-	}
+	}, 'json');
 }
 
 function clickBotonBusqueda(){
