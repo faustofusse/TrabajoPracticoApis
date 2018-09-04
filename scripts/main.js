@@ -133,26 +133,14 @@ function buscarDiarios(busqueda){
 	}, 'json');
 }
 
-function getRelatedEntities(text, noticia){
-	/*
-	// FORMA 1 (ANDA): INTELLEXER
-	var url = "https://api.intellexer.com/recognizeNeText?";
-	var parameters = {
-		apikey: 'a1e0e205-187e-4ba1-a9a4-c0a4b02e91ae',
-		loadNamedEntities: false,
-		loadRelationsTree: true,
-		loadSentences: false,
-	};
-	$.post(url + $.param(parameters), text, function(data) {
-		console.log(data);
-	});
-	*/
+function getRelatedEntities(textos, noticias){
 
-	// FORMA 2 (ANDA): DANDELION
+	// DANDELION API
 	var url = 'https://api.dandelion.eu/datatxt/nex/v1/?';
 	var parameters = {
 		text: text,
-		token:'a8e24afa552d46339e8cf01c4403daa8',
+		//token:'a8e24afa552d46339e8cf01c4403daa8',
+		token: 'ad2dbaa1f90b4123a21105020eb455e4',
 	};
 	$.get(url, parameters, function(data){
 		var entities = data.annotations;
