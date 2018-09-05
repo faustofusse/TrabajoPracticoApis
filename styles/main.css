@@ -126,13 +126,8 @@ header nav div.buscar input#buscarDiarios::placeholder{
 
 /*--------------------------------------------------------------*/
 
-div.container {
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
-	align-items: flex-start;
-}
 
+/*
 div.sidebar {
 	display: flex;
 	flex-direction: column;
@@ -185,10 +180,17 @@ div.sidebar ul li button i {
 div.sidebar ul li button:hover {
 	background-color: #1565c0;
 }
+*/
+div.container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 
 main {
-	padding-top: 1em;	
-	width: 80%;
+	padding: 1em ;
+	width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
@@ -247,9 +249,9 @@ main div.noticia {
 
 main div.noticia div.titulo h2{
 	font-family: "Bitter", sans-serif;
-	font-size: 1.4em;
+	font-size: 1.8em;
 	font-weight: bold;
-	padding: .5em;
+	padding: .9em;
 }
 
 main div.noticia div.descripcion {
@@ -257,7 +259,7 @@ main div.noticia div.descripcion {
 }
 
 main div.noticia div.descripcion h3{
-	font-size: 1em;
+	font-size: 2em;
 	font-family: "Bitter", sans-serif;
 	font-weight: normal;
 	padding: .5em;
@@ -265,7 +267,7 @@ main div.noticia div.descripcion h3{
 
 main div.noticia img {
 	width: 100%;
-	max-height: 16em;
+	max-height: 25em;
 }
 
 main div.noticia span#fecha{
@@ -334,12 +336,15 @@ button#floatingButton i{
 
 
 @media only screen and (max-width: 900px) {
-	
+
+	header nav input#buscarDiarios {
+		width: 100%;
+	}
 	header h1 {
 		font-size: 2.3em;
 		text-align: center;
 	}
-	header nav {
+	/*header nav {
 		padding-left: 0;
 	}
 	header nav div.diarios {
@@ -362,10 +367,11 @@ button#floatingButton i{
 		height: 100%;
 		overflow-y: auto;
 		padding-bottom: 0;
-	}
+	}*/
 	div.container main {
 		width: 100%;
 	}
+
 }
 
 @media only screen and (max-width: 700px) {
