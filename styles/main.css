@@ -7,6 +7,7 @@
 body {
 	background-color: #e0e0e0;
 	overflow-y: scroll;
+	position: relative;
 }
 
 button:focus, button:active, input:focus, input:active{outline: none;}
@@ -21,6 +22,7 @@ header {
 }
 
 header h1 {
+	width: 100%;
 	padding:1em;
 	font-size: 4.3em;
 	color: #fff;
@@ -74,7 +76,7 @@ header nav div {
 	align-items: stretch;
 }
 
-header nav div button{
+header nav button{
 	border:none;
 	background-color:#0d47a1;
 	color:#fff;
@@ -84,8 +86,16 @@ header nav div button{
 	line-height: 0em;
 }
 
-header nav div button:hover{
+header nav button i {
+	color: #fff;
+}
+
+header nav button:hover{
 	background-color:#1565c0;
+}
+
+header nav button#menu {
+	display: none;
 }
 
 header nav div.diarios {
@@ -116,9 +126,69 @@ header nav div.buscar input#buscarDiarios::placeholder{
 
 /*--------------------------------------------------------------*/
 
+div.container {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+div.sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 18%;
+	margin-top: 2.5em;
+	border-radius: 0 8px 8px 0;
+	box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.75);
+	background-color: #0d47a1;
+	padding-bottom: 1em;
+}
+
+div.sidebar span {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	color: #fff;
+	background-color: #1a237e;
+	font-weight: bold;
+	font-size: 1.3em;
+	padding: .6em 1em;
+}
+
+div.sidebar span:first-of-type {
+	border-radius: 0 8px 0 0;
+}
+
+div.sidebar span i {
+	color: #fff;
+	font-size: 0.8em;
+}
+
+div.sidebar ul li button {
+	display: flex;
+	justify-content: space-between;
+	text-align:left;
+	cursor: pointer;
+	color: #fff;
+	padding: 1em;
+	font-size: 1.1em;
+	border:none;
+	background-color: #0d47a1;
+	width: 100%;
+}
+
+div.sidebar ul li button i {
+	display: none;
+	color: #fff;
+}
+
+div.sidebar ul li button:hover {
+	background-color: #1565c0;
+}
+
 main {
 	padding-top: 1em;	
-	width: 100%;
+	width: 80%;
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-start;
@@ -164,7 +234,7 @@ main div.busqueda button i{
 main div.noticia {
 	cursor: pointer;
 	/*width: 23em;*/
-	width: 30%;
+	width: 48%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: stretch;
@@ -172,7 +242,7 @@ main div.noticia {
 	background-color: #fff;
 	box-shadow: 0px 0px 13px -3px rgba(0,0,0,0.75);
 	border-radius: 8px;
-	margin: 1.5em 0;	
+	margin: 1.5em 0;
 }
 
 main div.noticia div.titulo h2{
@@ -259,4 +329,47 @@ button#floatingButton {
 button#floatingButton i{
 	color: #fff;
 	font-size: 2em;
+}
+
+
+
+@media only screen and (max-width: 900px) {
+	
+	header h1 {
+		font-size: 2.3em;
+		text-align: center;
+	}
+	header nav {
+		padding-left: 0;
+	}
+	header nav div.diarios {
+		display: none;
+	}
+	header nav button#menu {
+		display: block;
+	}
+	div.container {
+		justify-content:center;
+	}
+	div.container div.sidebar {
+		position: fixed;
+		left: 0;
+		top: 0;
+		margin: 0;
+		border-radius: 0;
+		z-index:10;
+		width: 0%;
+		height: 100%;
+		overflow-y: auto;
+		padding-bottom: 0;
+	}
+	div.container main {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	div.container main div.noticia {
+		width: 95%;
+	}
 }
