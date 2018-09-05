@@ -1,41 +1,57 @@
 
 /*----------------------- VARIABLES -----------------------*/
 
-var key = "d1eae06defad4bb29383968c90e85a4b";
+var key = 'd1eae06defad4bb29383968c90e85a4b';
+var mode = 'everything';
 var newsApi = {
-	url: "https://newsapi.org/v2/everything?" + "apiKey=" + key,
+	url: 'https://newsapi.org/v2/'+ mode +'?' + 'apiKey=' + key,
 	parameters: {
 		from: fecha,
 		to: fecha,
-		sources: "infobae",
+		sources: 'infobae',
+		category: '',
 	} // otros parametros pueden ser country, language, q (palabra clave)
 };
 
-var diarios = ['cnn', 'daily-mail', 'bbc-news', 'marca', 'the-new-york-times', 'fox-sports']
-var diarioActivo;
-var colorNormal = '#0d47a1';
-var colorHover = '#1565c0';
+var diarios = ['cnn', 'daily-mail', 'bbc-news', 'marca', 'the-new-york-times', 'fox-sports'],
+    diarioActivo,
+    colorNormal = '#0d47a1',
+    colorHover = '#1565c0';
 
-var noticias = [];
-var noticia = $('div.noticia');
-var ultimaNoticia;
+var noticias = [],
+    noticia = $('div.noticia'),
+    ultimaNoticia;
 
-var fecha = ""; 
-var date = new Date();
-var day = date.getDate(); var daysPast = 0;
-var month = date.getMonth()+1; var monthsPast = 0;
-var year = date.getFullYear(); var yearsPast = 0;
-var	fecha = getYear() + "-" + getMonth() + "-" + getDay();
+var fecha = "",
+    date = new Date(),
+    day = date.getDate(), daysPast = 0,
+    month = date.getMonth()+1, monthsPast = 0,
+    year = date.getFullYear(), yearsPast = 0,
+   	fecha = getYear() + "-" + getMonth() + "-" + getDay();
 
+var collapsed = true;
 
 /*----------------------- INICIALIZACION -----------------------*/
 
+diarioActivo = 'infobae';
 $('div.noticia').remove();
+$('button#everything i').css('display', 'block');
+$('button#all i').css('display', 'block');
 rellenarContenido();
-var text = "Barcelona recibirá hoy al recién ascendido y debutante en Primera División, el SD Huesca, en la previa del parate de los torneos oficiales una doble fecha de selecciones dispuesta por la FIFA. La visita del equipo dirigido por el ex arquero argentino Leonardo Franco a los liderados en cancha por Lionel Messi será a las 13:30 (hora de la Argentina) supondrá una riesgosa empresa pero, se sabe, los partidos deben jugarse.";
-//getRelatedEntities(text);
 
 /*----------------------- EVENTOS -----------------------*/
+
+$('main, h1, input, button').click(function(event) {
+	if(!collapsed){
+		$('div.container div.sidebar').animate({width: '0%'});
+		collapsed = true;
+	}
+});
+
+$('button#menu').click(function(event) {
+	$('div.container div.sidebar').animate({width: '60%'});
+	collapsed = false;
+});
 
 $('header nav div.diarios button').click(function() {
 	var id = $(this).attr('id');
@@ -46,18 +62,42 @@ $('header nav div.diarios button').click(function() {
 	rellenarContenido();
 });
 
+$('ul#filter li button').click(function(event) {
+	mode = $(this).attr('id');
+	newsApi.parameters.category = '';
+	newsApi.parameters.sources = diarioActivo;
+	$('div.noticia').remove();
+	noticias = [];
+	rellenarContenido();
+	$('ul button i').css('display', 'none');
+	$(this).find('i').css('display', 'block');
+	$('button#all i').css('display', 'block');
+});
+
+$('ul#categories li button').click(function(event) {
+	mode = 'top-headlines';
+	newsApi.parameters.category = $(this).attr('id');
+	newsApi.parameters.sources = '';
+	$('div.noticia').remove();
+	noticias = [];
+	rellenarContenido();
+	$('ul button i').css('display', 'none');
+	$('button#top-headlines i').css('display', 'block');
+	$(this).find('i').css('display', 'block');
+});
+
 $('#floatingButton').click(function() {
 	$("html, body").animate({scrollTop: 0}, "slow");
 });
 
 $('input#buscarDiarios').click(function() {
 	if($(this).val().length > 0){
-		$('main div.busqueda').slideDown();
+		$('div.busqueda').slideDown();
 	}
 });
 
 $('input#buscarDiarios').focusout(function() {
-	$('main .busqueda').slideUp();
+	$('div.busqueda').slideUp();
 });
 
 $('input#buscarDiarios').keypress(function(event) {
@@ -68,7 +108,7 @@ $('input#buscarDiarios').keypress(function(event) {
 $('input#buscarDiarios').keyup(function(event) {
 	// BACKSPACE KEYCODE = 8
 	if (event.keyCode == 8 && $(this).val().length == 0){
-		$('main div.busqueda').slideUp();
+		$('div.busqueda').slideUp();
 	}else if (event.keyCode == 8 && $(this).val().length > 0){
 		buscarDiarios($(this).val());
 	}
@@ -86,28 +126,32 @@ $(window).scroll(function() {
 	}else{
 		$('#floatingButton').css('display', 'block');
 	}
-	$('main div.busqueda').slideUp(200);
+	$('div.busqueda').slideUp(200);
 });
 
 /*----------------------- FUNCIONES -----------------------*/
 
 function rellenarContenido(){
+	newsApi.url = 'https://newsapi.org/v2/'+ mode +'?' + 'apiKey=' + key;
 	newsApi.parameters.from = fecha;
 	newsApi.parameters.to = fecha;
 	$.get(newsApi.url, newsApi.parameters, function (data, status) {
 		//console.log(data);
+		var nuevasNoticias = [];
 		for (var i = 0; i < data.articles.length; i++) {
 			var clon = noticia.clone();
-			var fuente = data.articles[i].source.name + " - " + data.articles[i].publishedAt;
+			var date = new Date(data.articles[i].publishedAt);
+			var fuente = data.articles[i].source.name + " - " + date.toDateString();
 			var link = data.articles[i].url;
 			clon.find('h2').html(data.articles[i].title);
 			clon.find('h3').html(data.articles[i].description);
 			clon.find('img').attr('src',data.articles[i].urlToImage);
 			clon.find('span#fecha').html(fuente);
 			clon.click(clickNoticia);
-			getRelatedEntities(data.articles[i].description, clon);
 			clon.appendTo('main'); 
+			nuevasNoticias.push(clon);
 		}
+		addRelatedEntities(nuevasNoticias);
 		noticias = $.merge(noticias, data.articles);
 		ultimaNoticia = $('div.noticia:last');
 	}, 'json');
@@ -118,7 +162,7 @@ function buscarDiarios(busqueda){
 	$.get(sourcesUrl, {apiKey:key}, function(data){ // se le puede agregar el parametro lenguaje
 		var sources = data.sources;
 		var resultados = [];
-		$('main div.busqueda button').remove();
+		$('div.busqueda button').remove();
 
 		for(var i = 0; i< sources.length; i++){
 			if (sources[i].name.toLowerCase().indexOf($.trim(busqueda.toLowerCase())) != -1){
@@ -133,41 +177,46 @@ function buscarDiarios(busqueda){
 	}, 'json');
 }
 
-function getRelatedEntities(text, noticia){
-	/*
-	// FORMA 1 (ANDA): INTELLEXER
-	var url = "https://api.intellexer.com/recognizeNeText?";
-	var parameters = {
-		apikey: 'a1e0e205-187e-4ba1-a9a4-c0a4b02e91ae',
-		loadNamedEntities: false,
-		loadRelationsTree: true,
-		loadSentences: false,
-	};
-	$.post(url + $.param(parameters), text, function(data) {
-		console.log(data);
-	});
-	*/
+function addRelatedEntities(noticias){
+	var descripciones = [];
+	var texto = '';
+	for (var i = 0; i < noticias.length; i++) {
+		var descripcion = noticias[i].find('h3').html();
+		descripciones.push({
+			start:texto.length,
+			end:texto.length + descripcion.length,
+			text: descripcion,
+		});
+		texto += descripcion;
+	}
 
-	// FORMA 2 (ANDA): DANDELION
+	// DANDELION API
 	var url = 'https://api.dandelion.eu/datatxt/nex/v1/?';
 	var parameters = {
-		text: text,
-		token:'a8e24afa552d46339e8cf01c4403daa8',
+		//token:'a8e24afa552d46339e8cf01c4403daa8',
+		min_confidence: 0.75,
+		token: 'ad2dbaa1f90b4123a21105020eb455e4',
+		text: texto,
 	};
-	$.get(url, parameters, function(data){
+
+	$.post(url, parameters, function(data){
 		var entities = data.annotations;
+		//console.log(data);
 		for (var i = entities.length - 1; i >= 0; i--) {
-			if(entities[i].confidence > 0.8){
-				var boton = '<a href="'+entities[i].uri+'">'+entities[i].label+'</a>';
-				noticia.find('div.related').append(boton);
+			var noticia;
+			for (var b = 0; b < descripciones.length; b++) {
+				if (entities[i].start > descripciones[b].start && entities[i].end < descripciones[b].end)
+					noticia = noticias[b];
 			}
+			var boton = '<a href="'+entities[i].uri+'">'+entities[i].label+'</a>';
+			noticia.find('div.related').append(boton);
 		}
 	}, 'json');
 }
 
 function clickBotonBusqueda(){
 	var id = $(this).attr('id');
-	//diarioActivo = findDiarioBySource(id);
+	diarioActivo = id;
 	newsApi.parameters.sources = id;
 	$('header nav input#buscarDiarios').val("");
 	$('div.noticia').remove();

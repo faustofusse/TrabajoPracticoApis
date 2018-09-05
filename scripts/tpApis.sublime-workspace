@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"max",
+				"max-height"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"ind",
+				"indexOf"
+			],
+			[
+				"en",
+				"entities"
+			],
+			[
+				"alig",
+				"align-items"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"align",
+				"align-content"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
+				"bord",
+				"border-radius"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"fle",
+				"flex-start"
+			],
+			[
 				"click",
 				"clickBotonBusqueda"
 			],
@@ -14,10 +62,6 @@
 			[
 				"att",
 				"attr\t.attr() - single"
-			],
-			[
-				"padd",
-				"padding-right"
 			],
 			[
 				"fl",
@@ -52,10 +96,6 @@
 				"slideDown\t.slideDown()"
 			],
 			[
-				"font",
-				"font-size"
-			],
-			[
 				"le",
 				"length"
 			],
@@ -82,10 +122,6 @@
 			[
 				"css",
 				"css\t.css() - single"
-			],
-			[
-				"fle",
-				"flex-direction"
 			],
 			[
 				"over",
@@ -132,20 +168,12 @@
 				"background-size"
 			],
 			[
-				"margin",
-				"margin"
-			],
-			[
 				"bor",
 				"border-collapse"
 			],
 			[
 				"BOR",
 				"border-style"
-			],
-			[
-				"margi",
-				"margin"
 			],
 			[
 				"g",
@@ -178,10 +206,6 @@
 			[
 				"rg",
 				"rgba()"
-			],
-			[
-				"max",
-				"max-width"
 			],
 			[
 				"su",
@@ -423,7 +447,7 @@
 			"file": "/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis/index.html",
 			"settings":
 			{
-				"buffer_size": 1720,
+				"buffer_size": 1831,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -432,7 +456,7 @@
 			"file": "/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis/styles/main.css",
 			"settings":
 			{
-				"buffer_size": 3979,
+				"buffer_size": 4551,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -441,7 +465,7 @@
 			"file": "main.js",
 			"settings":
 			{
-				"buffer_size": 5537,
+				"buffer_size": 7049,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -509,10 +533,12 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis"
+		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis",
+		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis/scripts"
 	],
 	"file_history":
 	[
+		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis/scripts/nacho.js",
 		"/Users/mariavaleriarebora/Desktop/FaustoProyectos/TrabajoPracticoApis/images/search.svg",
 		"/Volumes/FAUSTO/Proyecto2/index.html",
 		"/Volumes/FAUSTO/Proyecto2/js/buscar_imagenes.js",
@@ -630,15 +656,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1720,
+						"buffer_size": 1831,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1096,
-								1096
+								1486,
+								1486
 							]
 						],
 						"settings":
@@ -647,7 +673,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 269.0,
+						"translation.y": 381.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -659,15 +685,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3979,
+						"buffer_size": 4551,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2792,
-								2792
+								3529,
+								3529
 							]
 						],
 						"settings":
@@ -676,7 +702,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2440.0,
+						"translation.y": 3312.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -688,15 +714,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5537,
+						"buffer_size": 7049,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4038,
-								4038
+								0,
+								0
 							]
 						],
 						"settings":
@@ -705,7 +731,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2217.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
